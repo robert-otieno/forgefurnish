@@ -17,7 +17,7 @@ const recent_products = [
   { image: 'https://bridge383.qodeinteractive.com/wp-content/uploads/2020/07/prod-img-3-600x366.jpg', product_name: 'Floor Decor', price: 179 }
 ]
 
-const tags = [ 'Chairs', 'Decoration', 'Furniture', 'Garden', 'furniture', 'Lamps', 'Shelfs', 'Tables' ]
+const tags = ['Chairs', 'Decoration', 'Furniture', 'Garden', 'furniture', 'Lamps', 'Shelfs', 'Tables']
 
 const best_sellers = [
   { image: 'https://bridge383.qodeinteractive.com/wp-content/uploads/2020/07/prod-img-12-600x366.jpg', product_name: 'Forge Basket', price: 109 },
@@ -39,9 +39,9 @@ const products = [
 const index = () => {
   return (
     <>
-      {/* <Navbar /> */}
       {/* Hero Section */}
       <section>
+        {/* <Navbar /> */}
         <div className='hero--products'></div>
       </section>
 
@@ -51,10 +51,12 @@ const index = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
             {products.map(({ image, url, product_name, categories, price }, idx) => (
               <div key={idx} className="m-2 space-y-2">
-                <img src={image} style={{imageRendering: 'optimizeQuality'}} alt={product_name} />
+                <Link to={`/product/${url}`}>
+                  <img src={image} style={{ imageRendering: 'optimizeQuality' }} alt={product_name} />
+                </Link>
                 <div className='flex justify-between font-cormorant text-xl'>
                   <div className=''>
-                    <h4 className='font-poppins text-sm uppercase tracking-wide mb-1'><Link to={url}>{product_name}</Link></h4>
+                    <h4 className='font-poppins text-sm uppercase tracking-wide mb-1'><Link to={`/product/${url}`}>{product_name}</Link></h4>
                     <ul className='flex italic text-gray-700 gap-1'>
                       {categories.map((category, idx) => (
                         <Link to={`/product-category/${category.toLowerCase()}`} key={idx} className='hover:text-black'>{idx === categories.length - 1 ? category : `${category}, `}</Link>
@@ -74,9 +76,9 @@ const index = () => {
             <div>
               <h2 className='font-poppins text-xl uppercase tracking-wide mb-4'>Recent Products</h2>
               <div className='flex flex-col gap-4'>
-                {recent_products.map(({image, product_name, price}, idx) => (
+                {recent_products.map(({ image, product_name, price }, idx) => (
                   <div key={idx} className="flex gap-4">
-                    <img className='w-20 object-cover' style={{imageRendering: 'optimizeQuality'}} src={image} alt="" />
+                    <img className='w-20 object-cover' style={{ imageRendering: 'optimizeQuality' }} src={image} alt="" />
                     <div className='font-cormorant italic text-xl flex-1'>
                       <h4 className='text-gray-700'>{product_name}</h4>
                       <p className='text-black'>${price}.00</p>
@@ -111,7 +113,7 @@ const index = () => {
               <div className='flex flex-col gap-4'>
                 {best_sellers.map(({ image, product_name, price }, idx) => (
                   <div key={idx} className="flex gap-4">
-                    <img className='w-20 object-cover' style={{imageRendering: 'optimizeQuality'}} src={image} alt="" />
+                    <img className='w-20 object-cover' style={{ imageRendering: 'optimizeQuality' }} src={image} alt="" />
                     <div className='font-cormorant italic text-xl flex-1'>
                       <h4 className='text-gray-700'>{product_name}</h4>
                       <p className='text-black'>${price}.00</p>
