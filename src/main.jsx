@@ -5,18 +5,22 @@ import {
   RouterProvider,
 } from "react-router-dom"
 import App from './App'
-import { Product, Products } from './pages'
+import { Category, Product, Products } from './pages'
 import './index.css'
 import ErrorPage from './error-page'
+import { ContextProvider } from './contexts/ContextProvider'
 
 const router = createBrowserRouter([
   { path: "/", element: <App />, errorElement: <ErrorPage /> },
   { path: "/products", element: <Products /> },
-  { path: "/product/:product", element: <Product /> }
+  { path: "/product/:product", element: <Product /> },
+  { path: "/product-category/:category", element: <Category /> }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ContextProvider>
+      <RouterProvider router={router} />
+    </ContextProvider>
   </React.StrictMode>,
 )

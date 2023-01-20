@@ -46,9 +46,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="dark:bg-gray-900 pt-5 text-xl">
+        <div className="dark:bg-gray-900 py-3 text-xl">
           <div className="mx-auto w-full bg-gray-300 h-[1px]"></div>
-          <div className="my-2 md:my-4">
+          <div className="my-2 md:my-3">
             <div className="text-center text-gray-600 italic font-cormorant md:text-left">
               <p>All rights reserved <a href="https://forgefurnish.com/" target="_blank" rel="noopener">© Forge & Furnish</a> {new Date().getFullYear()}</p>
             </div>
